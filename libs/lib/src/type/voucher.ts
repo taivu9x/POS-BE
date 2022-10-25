@@ -1,4 +1,4 @@
-import { ESize } from '../enum';
+import { ESize } from "../enum";
 
 export interface IDiscountBaseCondition {
   size: ESize;
@@ -17,9 +17,9 @@ export interface IDealCondition extends IDiscountBaseCondition {
 }
 
 export enum EVoucherType {
-  'DISCOUNT',
-  'DISCOUNT_PERCENT',
-  'DEAL',
+  "DISCOUNT" = "DISCOUNT",
+  "DISCOUNT_PERCENT" = "DISCOUNT_PERCENT",
+  "DEAL" = "DEAL",
 }
 
 export interface IVoucher
