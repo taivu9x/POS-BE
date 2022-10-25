@@ -1,5 +1,9 @@
-import { ESize } from "@lib/enum";
 import { IProduct } from "@lib/type";
+export enum ESize {
+  "SMALL" = "SMALL",
+  "MEDIUM" = "MEDIUM",
+  "LARGE" = "LARGE",
+}
 
 export const listProduct: IProduct[] = [
   {

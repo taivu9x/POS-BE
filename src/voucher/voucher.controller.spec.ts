@@ -4,7 +4,6 @@ import { HttpServer, INestApplication } from "@nestjs/common";
 import { getModelToken, MongooseModule } from "@nestjs/mongoose";
 import { Test, TestingModule } from "@nestjs/testing";
 import { Model } from "mongoose";
-import { VoucherController } from "./voucher.controller";
 import { VoucherModule } from "./voucher.module";
 import * as request from "supertest";
 
@@ -21,7 +20,11 @@ describe("VoucherController", () => {
       ],
     }).compile();
 
-    voucherModel = module.get(getModelToken("Action"));
+    voucherModel = module.get(getModelToken("Voucher"));
+
+    app = module.createNestApplication();
+    await app.init();
+    httpServer = app.getHttpServer();
   });
 
   beforeEach(async () => {
@@ -34,6 +37,7 @@ describe("VoucherController", () => {
 
   it("should return an array of cats", async () => {
     const res = await request(httpServer).get("/voucher").expect(200);
-    console.log(res);
+    const vouchers = res.body;
+    expect(vouchers).toHaveLength(3);
   });
 });
