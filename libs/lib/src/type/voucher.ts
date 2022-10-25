@@ -1,4 +1,4 @@
-import { ESize } from "@lib/enum";
+import { ESize, EVoucherType } from "@lib/enum";
 
 export interface IDiscountBaseCondition {
   size: ESize;
